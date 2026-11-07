@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Lost &amp; Found</title>
+<script>document.documentElement.dataset.theme=localStorage.getItem('theme')||'dark'</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<aside id="side">
+  <div class="brand">
+    <svg width="38" height="38" viewBox="0 0 34 34" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb62b"/><stop offset="1" stop-color="#ff4d8d"/></linearGradient></defs><path d="M4 6a3 3 0 0 1 3-3h11l12 12v13a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z" fill="url(#g)"/><circle cx="11" cy="10" r="2.4" fill="#0a1030"/><path d="M11 17v8M11 17c4 0 7 2 7 5" stroke="#0a1030" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    <div><b>Campus <em>Find</em></b><span>Lost &amp; Found</span></div>
+  </div>
+  <nav id="nav">
+    <button data-t="dash" class="on" onclick="setTab('dash')"><i data-i="dash"></i>Dashboard</button>
+    <button data-t="items" onclick="setTab('items')"><i data-i="items"></i>Browse Items</button>
+    <button data-t="claims" class="adm" onclick="setTab('claims')"><i data-i="claims"></i>Claims</button>
+    <button data-t="disputes" class="adm" onclick="setTab('disputes')"><i data-i="lost"></i>Disputes</button>
+    <button data-t="archive" class="adm" onclick="setTab('archive')"><i data-i="archive"></i>Archive</button>
+  </nav>
+  <div class="sidefoot">
+    <button class="nav2 adm" id="authBtn" onclick="authClick()"></button>
+  </div>
+</aside>
+<div id="content">
+  <header class="top">
+    <div><h1 id="hello"></h1><p id="sub"></p></div>
+    <div class="topr">
+      <button class="bell iconbtn" id="themeBtn" onclick="toggleTheme()"></button>
+      <label class="search"><i data-i="search"></i><input id="gs" placeholder="Search items..." aria-label="Search items" oninput="gsearch(this.value)"></label>
+      <button class="bell adm" onclick="bellClick()" title="Needs review"><i data-i="bell"></i><span id="bellN"></span></button>
+      <button class="loginbtn" id="loginBtn" onclick="authClick()"><i data-i="in"></i>Admin login</button>
+      <div class="user adm" onclick="profileDialog()" title="Edit profile" tabindex="0" onkeydown="if(event.key==='Enter')profileDialog()"><span class="av" id="av"></span><div><b id="uname"></b><small id="urole"></small></div></div>
+    </div>
+  </header>
+  <main id="view"></main>
+</div>
+<dialog id="dlg"></dialog>
+<div id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
